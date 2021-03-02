@@ -7,11 +7,11 @@ services:
       - POSTGRES_USER=hedgedoc
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=hedgedoc
-    networks:
-      intranet:
     volumes:
       - "database-data:/var/lib/postgresql/data"
     restart: always
+    networks:
+      intranet:
   hedgedoc:
     container_name: hegedoc
     image: quay.io/hedgedoc/hedgedoc:1.7.1
@@ -20,16 +20,16 @@ services:
       - CMD_ALLOW_ANONYMOUS=false
       - CMD_IMAGE_UPLOAD_FILESYSTEN=filesystem
       - CMD_USECDN=false
+    volumes:
+      - upload-data:/home/hackmd/app/public/uploads
     ports:
       - "3000:3000"
     networks:
       intranet:
       www:
-    volumes:
-      - upload-data:/home/hackmd/app/public/uploads
     restart: always
     depends_on:
-     - database
+      - database
 
 networks:
   intranet:
