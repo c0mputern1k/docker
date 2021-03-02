@@ -12,5 +12,5 @@ docker network create --internal intranet
 ### Deployment
 ```bash
 cd <folder>
-touch .vim #put each var vom docker-compose into this file
+touch .env #put each var vom docker-compose into this file
 docker-compose -p <container_name> up -d
