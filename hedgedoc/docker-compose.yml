@@ -14,7 +14,7 @@ services:
       intranet:
   hedgedoc:
     container_name: hegedoc
-    image: quay.io/hedgedoc/hedgedoc:1.7.1
+    image: quay.io/hedgedoc/hedgedoc:latest
     environment:
       - CMD_DB_URL=postgres://hedgedoc:${DB_PASSWORD}@hedgedoc_db/hedgedoc
       - CMD_ALLOW_ANONYMOUS=false
